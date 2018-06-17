@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+//bring in the model also
+
+use App\Post;
 
 class PostsController extends Controller
 {
@@ -13,7 +16,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        return view('posts.index')->with('posts', $posts);
     }
 
     /**
